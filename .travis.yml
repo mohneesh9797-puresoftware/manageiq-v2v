@@ -24,3 +24,32 @@ matrix:
       postgresql: '10'
     install: bin/setup
     after_script: bin/ci/after_script
+  - arch: arm64
+    name: "Node.js: 8"
+    language: node_js
+    cache: yarn
+    node_js:
+    - '8' # current stable
+    script: yarn test --runInBand
+  - dist: bionic
+    arch: arm64
+    name: "Ruby: 2.5.7"
+    language: ruby
+    cache: bundler
+    rvm:
+    - 2.5.7
+    addons:
+      postgresql: '10'
+    install: bin/setup
+    after_script: bin/ci/after_script
+  - arch: arm64
+    dist: bionic
+    name: "Ruby: 2.6.5"
+    language: ruby
+    rvm:
+    - 2.6.5
+    cache: bundler
+    addons:
+      postgresql: '10'
+    install: bin/setup
+    after_script: bin/ci/after_script
